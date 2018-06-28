@@ -18,16 +18,16 @@ export class ArmchairsComponent implements OnInit {
   ngOnInit() {
     this.form_armchairs = this.formBuilder.group({
 
-      cod_id: ['1', [Validators.required, Validators.nullValidator]],
-      number: ['1', [Validators.required, Validators.nullValidator]],
-      name: ['armchairs 1', [Validators.required, Validators.nullValidator]],
-      description: ['armchairs 1', [Validators.required, Validators.nullValidator]],
-      date: ['2018-06-27', [Validators.required, Validators.nullValidator]],
-      armchairs_qtd: ['2', [Validators.required, Validators.nullValidator]],
-      status: ['active', [Validators.required, Validators.nullValidator]],
-      cost: ['23.45', [Validators.required, Validators.nullValidator]],
-      reservation: ['Ivam', [Validators.required, Validators.nullValidator]],
-      status_armchairs: ['available', [Validators.required, Validators.nullValidator]]
+      cod_id: ['', [Validators.required, Validators.nullValidator]],
+      number: ['', [Validators.required, Validators.nullValidator]],
+      name: ['', [Validators.required, Validators.nullValidator]],
+      description: ['', [Validators.required, Validators.nullValidator]],
+      date: ['', [Validators.required, Validators.nullValidator]],
+      armchairs_qtd: ['', [Validators.required, Validators.nullValidator]],
+      status: ['', [Validators.required, Validators.nullValidator]],
+      cost: ['', [Validators.required, Validators.nullValidator]],
+      reservation: ['', [Validators.required, Validators.nullValidator]],
+      status_armchairs: ['', [Validators.required, Validators.nullValidator]]
 
     });
   }
