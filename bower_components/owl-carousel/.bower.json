@@ -1,0 +1,14 @@
+{
+  "name": "owlcar",
+  "homepage": "https://github.com/OwlFonk/OwlCarousel",
+  "version": "1.3.2",
+  "_release": "1.3.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.3.2",
+    "commit": "784fe9449aae5b0a790d80cbc221abb6595bbe03"
+  },
+  "_source": "https://github.com/evenicoulddoit/owl-carousel.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/evenicoulddoit/owl-carousel.git"
+}

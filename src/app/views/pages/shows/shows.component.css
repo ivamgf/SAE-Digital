@@ -1,0 +1,18 @@
+.style-show {
+  font-weight: bold;
+}
+
+ul {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 5%;
+  margin-top: 2%;
+}
+
+#id {
+  width: 100px;
+}
+
+.style-button {
+  margin: 1%;
+}
