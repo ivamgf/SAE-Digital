@@ -1,21 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppService } from '../../../app.service';
 
 
 @Component({
   selector: 'app-armchairs',
   templateUrl: './armchairs.component.html',
-  styleUrls: ['./armchairs.component.sass']
+  styleUrls: ['./armchairs.component.sass'],
+  providers: [AppService]
 })
 export class ArmchairsComponent implements OnInit {
 
   form_armchairs: FormGroup;
+  getData:  string;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private httpAppService: AppService
   ) { }
 
   ngOnInit() {
+    const returnArmchairs = this.httpAppService.getArmchairs()
+    .subscribe(
+      data => this.getData = JSON.stringify(data),
+      error => alert(error),
+      () => console.log('acesso a webapi get ok...')
+   );
     this.form_armchairs = this.formBuilder.group({
 
       cod_id: ['', [Validators.required, Validators.nullValidator]],
@@ -30,6 +40,14 @@ export class ArmchairsComponent implements OnInit {
       status_armchairs: ['', [Validators.required, Validators.nullValidator]]
 
     });
+  }
+  onArmchairsGetId() {
+    this.httpAppService.getArmchairsId()
+    .subscribe(
+      data => this.getData = JSON.stringify(data),
+      error => alert(error),
+      () => console.log('acesso a webapi get ok...')
+   );
   }
   resetForm() {
 

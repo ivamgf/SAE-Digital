@@ -1,20 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppService } from '../../../app.service';
 
 @Component({
   selector: 'app-bills',
   templateUrl: './bills.component.html',
-  styleUrls: ['./bills.component.sass']
+  styleUrls: ['./bills.component.sass'],
+  providers: [AppService]
 })
 export class BillsComponent implements OnInit {
 
   form_bills: FormGroup;
+  getData:  string;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private httpAppService: AppService
   ) { }
 
   ngOnInit() {
+    const returnBills = this.httpAppService.getBills()
+    .subscribe(
+      data => this.getData = JSON.stringify(data),
+      error => alert(error),
+      () => console.log('acesso a webapi get ok...')
+   );
 
     this.form_bills = this.formBuilder.group({
 
@@ -29,6 +39,14 @@ export class BillsComponent implements OnInit {
       total: ['', [Validators.required, Validators.nullValidator]]
 
     });
+  }
+  onBillsGetId() {
+    this.httpAppService.getBillsId()
+    .subscribe(
+      data => this.getData = JSON.stringify(data),
+      error => alert(error),
+      () => console.log('acesso a webapi get ok...')
+   );
   }
   resetForm() {
 

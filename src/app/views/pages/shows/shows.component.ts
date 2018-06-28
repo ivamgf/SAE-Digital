@@ -18,6 +18,13 @@ export class ShowsComponent implements OnInit {
     private httpAppService: AppService
   ) { }
   ngOnInit() {
+    const returnShows = this.httpAppService.getShows()
+    .subscribe(
+      data => this.getData = JSON.stringify(data),
+      error => alert(error),
+      () => console.log('acesso a webapi get ok...')
+   );
+
     this.form_shows = this.formBuilder.group({
 
       number: ['', [Validators.required, Validators.nullValidator]],
@@ -30,8 +37,8 @@ export class ShowsComponent implements OnInit {
 
     });
   }
-   onShowsGet() {
-    this.httpAppService.getShows()
+   onShowsGetId() {
+    this.httpAppService.getShowsId()
     .subscribe(
       data => this.getData = JSON.stringify(data),
       error => alert(error),
