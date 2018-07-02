@@ -5,11 +5,11 @@
             <form [formGroup] = "form_shows">
               <div class="form-group">
                   <label for="show id">id:</label>
-                  <input matInput type="number" class="form-control" id="id" formControlName="number" disabled>
+                  <input matInput type="number" class="form-control" id="id" [formControl]='number' disabled>
               </div>
               <div class="form-group">
                 <label for="show name">Show Name:</label>
-                <input matInput type="text" class="form-control" id="name" formControlName="name" requered>
+                <input matInput type="text" class="form-control" id="name" [(ngModel)]='getData.count' formControlName="name" requered>
               </div>
               <div class="form-group">
                 <label for="desc">Show Description:</label>
@@ -17,22 +17,22 @@
               </div>
               <div class="form-group">
                   <label for="show date">Show Date:</label>
-                  <input matInput type="date" class="form-control" id="date" formControlName="date" requered>
+                  <input matInput type="datetime-local" class="form-control" id="date" [formControl]='date' requered>
               </div>
               <div class="form-group">
                   <label for="show number">Number of Armchairs:</label>
-                  <input matInput type="number" class="form-control" id="armchairs_qtd" formControlName="armchairs_qtd" requered>
+                  <input matInput type="number" class="form-control" id="armchairs_qtd" [formControl]='armchairs_qtd' requered>
               </div>
               <div class="form-group">
               <label for="status">Status:</label>
-              <select matInput class="form-control" id="status" name="status" formControlName="status">
+              <select matInput class="form-control" id="status" name="status" [formControl]='status'>
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
               </select>
               </div>
               <div class="form-group">
                   <label for="show cost">Cost of Armchairs:</label>
-                  <input matInput type="number" class="form-control" id="cost" placeholder="R$ 0.00" formControlName="cost">
+                  <input matInput type="number" class="form-control" id="cost" placeholder="R$ 0.00" [formControl]='cost'>
               </div>
               <div class="form-group justify-content-center">
                   <ul class="pagination pagination-sm justify-content-center">
@@ -43,11 +43,11 @@
             </form>
         </li>
         <li class="list-group-item list-group-item-dark font-weight-bold">
-            <button type="submit" class="btn btn-secondary style-button" (click)="onShowsGetId()">Get</button>
-            <button type="submit" class="btn btn-success style-button">Post</button>
+            <button type="button" class="btn btn-secondary style-button" (click)="onShowsGetId()">Get</button>
+            <button type="submit" class="btn btn-success style-button" (click)="onSubmit()">Post</button>
             <button type="button" class="btn btn-secondary style-button" (click)="resetForm()">Clear</button>
-            <button type="submit" class="btn btn-secondary style-button">Put</button>
-            <button type="submit" class="btn btn-danger style-button">Delete</button>
+            <button type="button" class="btn btn-secondary style-button">Put</button>
+            <button type="button" class="btn btn-danger style-button">Delete</button>
             <p>Resultado : {{getData}}</p>
         </li>
       </ul>
