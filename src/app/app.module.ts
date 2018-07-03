@@ -11,6 +11,8 @@ import { FooterComponent } from './views/footer/footer.component';
 import { ShowsComponent } from './views/pages/shows/shows.component';
 import { ArmchairsComponent } from './views/pages/armchairs/armchairs.component';
 import { BillsComponent } from './views/pages/bills/bills.component';
+import { ConsultComponent } from './views/pages/consult/consult.component';
+import { PostComponent } from './views/pages/post/post.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { BillsComponent } from './views/pages/bills/bills.component';
     FooterComponent,
     ShowsComponent,
     ArmchairsComponent,
-    BillsComponent
+    BillsComponent,
+    ConsultComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

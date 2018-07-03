@@ -16,7 +16,7 @@ export class AppService {
     return this.http.get('https://desafia.sae.digital/api/shows/')
     .pipe(map(data => data.json()));
   }
-    getShowsId(): Observable<Response[]> {
+    getShowsId() {
     return this.http.get('https://desafia.sae.digital/api/shows/{id}/')
     .pipe(map(res => res.json()));
   }

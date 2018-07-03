@@ -48,14 +48,6 @@ export class ShowsComponent implements OnInit {
 
     });
   }
-   onShowsGetId() {
-    this.httpAppService.getShowsId()
-    .subscribe(
-      data => this.getData = JSON.stringify(data),
-      error => alert(error),
-      () => console.log('acesso a webapi get ok...')
-   );
-  }
   onSubmit() {
     this.http.post('https://desafia.sae.digital/api/shows/', JSON.stringify(this.form_shows))
     .pipe(map(data => data.json()))

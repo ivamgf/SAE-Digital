@@ -33,15 +33,12 @@
               <div class="form-group">
                   <label for="show cost">Cost of Armchairs:</label>
                   <input matInput type="number" class="form-control" id="cost" placeholder="R$ 0.00" [(ngModel)]='i.cost_of_armchair' [ngModelOptions]='{standalone: true}' disabled>
-              </div>              
+              </div>
             </form>
         </li>
         <li class="list-group-item list-group-item-dark font-weight-bold">
-            <button type="button" class="btn btn-secondary style-button" (click)="onShowsGetId()">Get</button>
-            <button type="submit" class="btn btn-success style-button" id='post' (click)="onSubmit()">Post</button>
-            <button type="button" class="btn btn-secondary style-button" (click)="resetForm()" id='clear'>Clear</button>
-            <button type="button" class="btn btn-secondary style-button">Put</button>
-            <button type="button" class="btn btn-danger style-button">Delete</button>
+            <button type="button" class="btn btn-secondary style-button" routerLink="/consult">Consult</button>
+            <button type="submit" class="btn btn-success style-button" id='post' routerLink="/post">New</button>
         </li>
       </ul>
 </section>
