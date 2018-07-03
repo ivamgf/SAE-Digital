@@ -12,9 +12,9 @@ export class AppService {
   constructor(
     private http: Http
   )   { }
-    getShows(): Observable<Response> {
+    getShows() {
     return this.http.get('https://desafia.sae.digital/api/shows/')
-    .pipe(map(res => res.json()));
+    .pipe(map(data => data.json()));
   }
     getShowsId(): Observable<Response[]> {
     return this.http.get('https://desafia.sae.digital/api/shows/{id}/')
