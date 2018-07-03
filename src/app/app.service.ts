@@ -18,7 +18,7 @@ export class AppService {
   }
     getShowsId() {
     return this.http.get('https://desafia.sae.digital/api/shows/{id}/')
-    .pipe(map(res => res.json()));
+    .pipe(map(data => data.json()));
   }
     getBills() {
     return this.http.get('https://desafia.sae.digital/api/bills/')
@@ -26,15 +26,15 @@ export class AppService {
   }
     getBillsId() {
     return this.http.get('https://desafia.sae.digital/api/bills/{id}/')
-    .pipe(map(res => res.json()));
+    .pipe(map(data => data.json()));
   }
-    getArmchairs(): Observable<Response[]> {
+    getArmchairs() {
     return this.http.get('https://desafia.sae.digital/api/armchairs/')
-    .pipe(map(res => res.json()));
+    .pipe(map(data => data.json()));
   }
     getArmchairsId(): Observable<Response[]> {
     return this.http.get('https://desafia.sae.digital/api/armchairs/{id}/')
-    .pipe(map(res => res.json()));
+    .pipe(map(data => data.json()));
   }
     /* registerNewShows(newShow): Observable<this.ShowsComponent.newShow[]> {
     return this.http.post<newShow[]>('https://desafia.sae.digital/api/shows/', newShow, httpOptions)

@@ -7,6 +7,8 @@ import { BillsComponent } from './views/pages/bills/bills.component';
 import { ConsultComponent } from './views/pages/consult/consult.component';
 import { PostComponent } from './views/pages/post/post.component';
 import { ConsultBillsComponent } from './views/pages/consult-bills/consult-bills.component';
+import { ReserveComponent } from './views/pages/reserve/reserve.component';
+import { CancelComponent } from './views/pages/cancel/cancel.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,14 @@ const routes: Routes = [
     {
       path: 'consult-bills',
       component: ConsultBillsComponent
+    },
+    {
+      path: 'reserve',
+      component: ReserveComponent
+    },
+    {
+      path: 'cancel',
+      component: CancelComponent
     }
 ];
 

@@ -12,7 +12,7 @@ import { AppService } from '../../../app.service';
 export class ArmchairsComponent implements OnInit {
 
   form_armchairs: FormGroup;
-  getData:  string;
+  getArmchairs:  string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,9 +22,8 @@ export class ArmchairsComponent implements OnInit {
   ngOnInit() {
     const returnArmchairs = this.httpAppService.getArmchairs()
     .subscribe(
-      data => this.getData = JSON.stringify(data),
-      error => alert(error),
-      () => console.log('acesso a webapi get ok...')
+      data => this.getArmchairs = data,
+      error => alert(error)
    );
     this.form_armchairs = this.formBuilder.group({
 
@@ -44,7 +43,7 @@ export class ArmchairsComponent implements OnInit {
   onArmchairsGetId() {
     this.httpAppService.getArmchairsId()
     .subscribe(
-      data => this.getData = JSON.stringify(data),
+      data => this.getArmchairs = JSON.stringify(data),
       error => alert(error),
       () => console.log('acesso a webapi get ok...')
    );
