@@ -20,11 +20,11 @@ export class AppService {
     return this.http.get('https://desafia.sae.digital/api/shows/{id}/')
     .pipe(map(res => res.json()));
   }
-    getBills(): Observable<Response[]> {
+    getBills() {
     return this.http.get('https://desafia.sae.digital/api/bills/')
-    .pipe(map(res => res.json()));
+    .pipe(map(data => data.json()));
   }
-    getBillsId(): Observable<Response[]> {
+    getBillsId() {
     return this.http.get('https://desafia.sae.digital/api/bills/{id}/')
     .pipe(map(res => res.json()));
   }

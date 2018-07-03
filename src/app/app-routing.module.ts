@@ -6,6 +6,7 @@ import { ArmchairsComponent } from './views/pages/armchairs/armchairs.component'
 import { BillsComponent } from './views/pages/bills/bills.component';
 import { ConsultComponent } from './views/pages/consult/consult.component';
 import { PostComponent } from './views/pages/post/post.component';
+import { ConsultBillsComponent } from './views/pages/consult-bills/consult-bills.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
     {
       path: 'post',
       component: PostComponent
+    },
+    {
+      path: 'consult-bills',
+      component: ConsultBillsComponent
     }
 ];
 

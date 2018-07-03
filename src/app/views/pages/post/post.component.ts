@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../app.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
 
@@ -20,9 +20,20 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.form_post = this.formBuilder.group({
+
+      number: ['', [Validators.required, Validators.nullValidator]],
+      name: ['', [Validators.required, Validators.nullValidator]],
+      description: ['', [Validators.required, Validators.nullValidator]],
+      date: ['', [Validators.required, Validators.nullValidator]],
+      armchairs_qtd: ['', [Validators.required, Validators.nullValidator]],
+      status: ['', [Validators.required, Validators.nullValidator]],
+      cost: ['', [Validators.required, Validators.nullValidator]]
+
+    });
   }
   onSubmit() {
-    this.http.post('https://desafia.sae.digital/api/shows/', JSON.stringify(this.form_post))
+    return this.http.post('https://desafia.sae.digital/api/shows/', JSON.stringify(this.form_post))
     .pipe(map(data => data.json()))
     .subscribe(
       data => this.postData = data

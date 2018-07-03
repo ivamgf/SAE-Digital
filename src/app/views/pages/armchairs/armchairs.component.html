@@ -51,20 +51,19 @@
                     <option value="unavailable">Unavailable</option>
                 </select>
               </div>
-              <div class="form-group justify-content-center">
-                  <ul class="pagination pagination-sm justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Prev.</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                  </ul>
-                </div>
             </form>
+            <div class="form-group justify-content-center">
+              <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">Prev.</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </div>
         </li>
         <li class="list-group-item list-group-item-dark font-weight-bold">
             <button type="submit" class="btn btn-secondary style-button" (click)="onArmchairsGetId()">Get</button>
             <button type="submit" class="btn btn-success style-button">Reserve</button>
             <button type="submit" class="btn btn-danger style-button">Cancel</button>
             <button type="button" class="btn btn-secondary style-button" (click)="resetForm()">Clear</button>
-            <p>Resultado : {{getData}}</p>
         </li>
       </ul>
 

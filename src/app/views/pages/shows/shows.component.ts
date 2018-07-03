@@ -15,15 +15,12 @@ import { AppService } from '../../../app.service';
 })
 export class ShowsComponent implements OnInit {
   number = new FormControl();
-  // name = new FormControl();
-  // description = new FormControl();
   date = new FormControl();
   armchairs_qtd = new FormControl();
   status = new FormControl();
   cost = new FormControl();
   form_shows: FormGroup;
   getData:  string;
-  // getData.results:  string;
   postData:  string;
   constructor(
     private formBuilder: FormBuilder,
@@ -47,23 +44,5 @@ export class ShowsComponent implements OnInit {
       cost: ['', [Validators.required, Validators.nullValidator]]
 
     });
-  }
-  onSubmit() {
-    this.http.post('https://desafia.sae.digital/api/shows/', JSON.stringify(this.form_shows))
-    .pipe(map(data => data.json()))
-    .subscribe(
-      data => this.postData = data
-    );
-  }
-  resetForm() {
-    this.form_shows = this.formBuilder.group({
-      number: [''],
-      name: [''],
-      description: [''],
-      date: [''],
-      armchairs_qtd: [''],
-      status: [''],
-      cost: ['']
-      });
   }
 }

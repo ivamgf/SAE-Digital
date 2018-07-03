@@ -11,7 +11,7 @@ import { AppService } from '../../../app.service';
 export class BillsComponent implements OnInit {
 
   form_bills: FormGroup;
-  getData:  string;
+  getBills:  string;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -21,9 +21,8 @@ export class BillsComponent implements OnInit {
   ngOnInit() {
     const returnBills = this.httpAppService.getBills()
     .subscribe(
-      data => this.getData = JSON.stringify(data),
-      error => alert(error),
-      () => console.log('acesso a webapi get ok...')
+      data => this.getBills = data,
+      error => alert(error)
    );
 
     this.form_bills = this.formBuilder.group({
@@ -43,7 +42,7 @@ export class BillsComponent implements OnInit {
   onBillsGetId() {
     this.httpAppService.getBillsId()
     .subscribe(
-      data => this.getData = JSON.stringify(data),
+      data => this.getBills = JSON.stringify(data),
       error => alert(error),
       () => console.log('acesso a webapi get ok...')
    );

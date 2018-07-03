@@ -13,6 +13,7 @@ import { ArmchairsComponent } from './views/pages/armchairs/armchairs.component'
 import { BillsComponent } from './views/pages/bills/bills.component';
 import { ConsultComponent } from './views/pages/consult/consult.component';
 import { PostComponent } from './views/pages/post/post.component';
+import { ConsultBillsComponent } from './views/pages/consult-bills/consult-bills.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PostComponent } from './views/pages/post/post.component';
     ArmchairsComponent,
     BillsComponent,
     ConsultComponent,
-    PostComponent
+    PostComponent,
+    ConsultBillsComponent
   ],
   imports: [
     BrowserModule,
