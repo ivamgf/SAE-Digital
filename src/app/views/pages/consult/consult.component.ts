@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../app.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
-import { Http } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
+import { Headers } from '@angular/http';
 
+export const contentHeaders = new Headers();
+contentHeaders.append('Accept', 'application/json');
+contentHeaders.append('Content-Type', 'application/json');
+contentHeaders.append('Access-Control-Allow-Origin', '*');
 @Component({
   selector: 'app-consult',
   templateUrl: './consult.component.html',
@@ -13,6 +18,13 @@ import { Http } from '@angular/http';
 export class ConsultComponent implements OnInit {
   form_consult: FormGroup;
   getConsult: any;
+  putConsult: any = {
+    name: '',
+    description: '',
+    date: '',
+    armchairs_qtd: '',
+    status: ''
+  };
   getConsultId: any = {
     armchairs_qtd: '',
     cost_of_armchair: '',
@@ -38,5 +50,23 @@ export class ConsultComponent implements OnInit {
       data => this.getConsult = data,
       error => alert(error)
    );
+  }
+  onPut() {
+    const options = new RequestOptions({headers: contentHeaders});
+    return this.http.put(`https://desafia.sae.digital/api/shows/${this.getConsultId.number}`, this.getConsult, options)
+    .pipe(map(data => data.json()))
+    .subscribe(
+      data => this.getConsult = data,
+      () => console.log(this.getConsult)
+    );
+  }
+  onDelete() {
+    const options = new RequestOptions({headers: contentHeaders});
+    return this.http.delete(`https://desafia.sae.digital/api/shows/${this.getConsultId.number}`, options)
+    .pipe(map(data => data.json()))
+    .subscribe(
+      data => this.getConsult = data,
+      () => console.log(this.getConsult)
+    );
   }
 }

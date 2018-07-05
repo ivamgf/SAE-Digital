@@ -16,10 +16,6 @@ export class AppService {
     return this.http.get('https://desafia.sae.digital/api/shows/')
     .pipe(map(data => data.json()));
   }
-   /* getShowsId() {
-    return this.http.get(`https://desafia.sae.digital/api/shows/${getConsultId.number}`)
-    .pipe(map(data => data.json()));
-  }*/
     getBills() {
     return this.http.get('https://desafia.sae.digital/api/bills/')
     .pipe(map(data => data.json()));
@@ -36,7 +32,4 @@ export class AppService {
     return this.http.get('https://desafia.sae.digital/api/armchairs/{id}/')
     .pipe(map(data => data.json()));
   }
-    registerNewShows(postArmchairs) {
-    return this.http.post('https://desafia.sae.digital/api/shows/', postArmchairs)
-    .pipe(map(data => data.json()));
-  }}
+}

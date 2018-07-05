@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../app.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { map } from 'rxjs/operators';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-consult-bills',
@@ -10,19 +12,31 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class ConsultBillsComponent implements OnInit {
   form_consultBills: FormGroup;
-  getConsultBills:  string;
+  getConsultBills:  any;
+  getConsultId: any = {
+    armchairs_qtd: '',
+    cost_of_armchair: '',
+    date: '',
+    description: '',
+    id: '',
+    name: '',
+    status: ''
+  };
   constructor(
     private formBuilder: FormBuilder,
-    private httpAppService: AppService
+    private httpAppService: AppService,
+    private http: Http
   ) { }
 
   ngOnInit() {
   }
-  onBillsGetId(id) {
-    this.httpAppService.getBillsId()
+  onBillsGetId() {
+    return this.http.get(`https://desafia.sae.digital/api/bills/${this.getConsultId.number}`)
+    .pipe(map(data => data.json()))
     .subscribe(
       data => this.getConsultBills = data,
-      error => alert(error)
+      error => alert(error),
+      () => console.log(this.getConsultBills)
    );
   }
 }
