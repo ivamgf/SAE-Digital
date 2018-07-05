@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../app.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { RequestOptions, Http } from '@angular/http';
+import { contentHeaders } from '../post/post.component';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cancel',
@@ -10,11 +13,21 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CancelComponent implements OnInit {
   form_cancel: FormGroup;
-  getCancel:  string;
+  getCancel:  any;
   arrowCancel: string[] = [''];
+  getConsultId: any = {
+    armchairs_qtd: '',
+    cost_of_armchair: '',
+    date: '',
+    description: '',
+    id: '',
+    name: '',
+    status: ''
+  };
   constructor(
     private formBuilder: FormBuilder,
-    private httpAppService: AppService
+    private httpAppService: AppService,
+    private http: Http
   ) { }
 
   ngOnInit() {
@@ -31,5 +44,13 @@ export class CancelComponent implements OnInit {
 
   });
   }
-
+  onCancelReserve() {
+    const options = new RequestOptions({headers: contentHeaders});
+    return this.http.post(`https://desafia.sae.digital/api/armchairs/${this.getConsultId.number}`, this.getCancel, options)
+    .pipe(map((response: Response) => response.json()))
+    .subscribe(
+      data => this.getCancel = data,
+      () => console.log(this.getCancel)
+    );
+  }
 }
