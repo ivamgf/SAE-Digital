@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../../app.service';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { Http } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
 import { map } from 'rxjs/operators';
+import {Headers} from '@angular/http';
+
+export const contentHeaders = new Headers();
+contentHeaders.append('Accept', 'application/json, text/plain, */*');
+contentHeaders.append('Content-Type', 'application/json');
+contentHeaders.append('Access-Control-Allow-Origin', '*');
 
 @Component({
   selector: 'app-post',
@@ -13,6 +19,15 @@ import { map } from 'rxjs/operators';
 export class PostComponent implements OnInit {
   form_post: FormGroup;
   postData: string;
+  postArmchairs: any = {
+    number: '',
+    name: '',
+    description: '',
+    date: '',
+    armchairs_qtd: '',
+    status: ''
+  };
+
   constructor(
     private formBuilder: FormBuilder,
     private httpAppService: AppService,
@@ -20,34 +35,11 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.form_post = this.formBuilder.group({
-
-      number: ['', [Validators.required, Validators.nullValidator]],
-      name: ['', [Validators.required, Validators.nullValidator]],
-      description: ['', [Validators.required, Validators.nullValidator]],
-      date: ['', [Validators.required, Validators.nullValidator]],
-      armchairs_qtd: ['', [Validators.required, Validators.nullValidator]],
-      status: ['', [Validators.required, Validators.nullValidator]],
-      cost: ['', [Validators.required, Validators.nullValidator]]
-
-    });
   }
   onSubmit() {
-    return this.http.post('https://desafia.sae.digital/api/shows/', JSON.stringify(this.form_post))
-    .pipe(map(data => data.json()))
+    this.httpAppService.registerNewShows(this.postArmchairs)
     .subscribe(
-      data => this.postData = data
+      data => this.postData = data.json()
     );
-  }
-  resetForm() {
-    this.form_post = this.formBuilder.group({
-      number: [''],
-      name: [''],
-      description: [''],
-      date: [''],
-      armchairs_qtd: [''],
-      status: [''],
-      cost: ['']
-      });
   }
 }

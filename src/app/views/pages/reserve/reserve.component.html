@@ -5,7 +5,7 @@
       <li class="list-group-item">
           <form [formGroup] = "form_reserve" *ngFor="let i of arrowReserve">
           <div class="form-group" >
-            <label for="status">Show:</label>
+            <label for="shows">Show:</label>
             <select matInput class="form-control" id="name" >
               <option  *ngFor="let i of getReserve.results" [ngValue]='i.id'>{{i.name}}</option>
             </select>
