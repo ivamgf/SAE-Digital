@@ -2,52 +2,43 @@
     <ul class="list-group">
         <li class="list-group-item list-group-item-dark font-weight-bold">Shows List</li>
         <li class="list-group-item">
-            <form [formGroup] = "form_shows">
+            <form *ngFor="let i of getData.results">
               <div class="form-group">
-                  <label for="show id">id:</label>
-                  <input matInput type="number" class="form-control" id="id" formControlName="number" disabled>
+                  <label for="show id">Id:</label>
+                  <input matInput type="number" class="form-control" id="id" [(ngModel)]='i.id' [ngModelOptions]='{standalone: true}'  disabled>
               </div>
               <div class="form-group">
                 <label for="show name">Show Name:</label>
-                <input matInput type="text" class="form-control" id="name" formControlName="name" requered>
+                <input type="text" class="form-control" id='name' [(ngModel)]='i.name' [ngModelOptions]='{standalone: true}' requered>
               </div>
               <div class="form-group">
                 <label for="desc">Show Description:</label>
-                <textarea matInput class="form-control" rows="2" id="description" formControlName="description" requered></textarea>
+                <textarea matInput class="form-control" rows="2" id="description" [(ngModel)]='i.description' [ngModelOptions]='{standalone: true}' requered></textarea>
               </div>
               <div class="form-group">
                   <label for="show date">Show Date:</label>
-                  <input matInput type="date" class="form-control" id="date" formControlName="date" requered>
+                  <input matInput type="datetime" class="form-control" id="date" [(ngModel)]='i.date' [ngModelOptions]='{standalone: true}' requered>
               </div>
               <div class="form-group">
                   <label for="show number">Number of Armchairs:</label>
-                  <input matInput type="number" class="form-control" id="armchairs_qtd" formControlName="armchairs_qtd" requered>
+                  <input matInput type="number" class="form-control" id="armchairs_qtd" [(ngModel)]='i.armchairs_qtd' [ngModelOptions]='{standalone: true}' requered>
               </div>
               <div class="form-group">
               <label for="status">Status:</label>
-              <select matInput class="form-control" id="status" name="status" formControlName="status">
-                  <option value="active">Active</option>
-                  <option value="inactive">Inactive</option>
+              <select matInput class="form-control" id="status" name="status" [(ngModel)]='i.status' [ngModelOptions]='{standalone: true}' >
+                  <option value="Active">Active</option>
+                  <option value="Inactive">Inactive</option>
               </select>
               </div>
               <div class="form-group">
                   <label for="show cost">Cost of Armchairs:</label>
-                  <input matInput type="number" class="form-control" id="cost" placeholder="R$ 0.00" formControlName="cost">
+                  <input matInput type="number" class="form-control" id="cost" placeholder="R$ 0.00" [(ngModel)]='i.cost_of_armchair' [ngModelOptions]='{standalone: true}' disabled>
               </div>
-              <div class="form-group justify-content-center">
-                  <ul class="pagination pagination-sm justify-content-center">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                  </ul>
-                </div>
             </form>
         </li>
         <li class="list-group-item list-group-item-dark font-weight-bold">
-            <button type="submit" class="btn btn-secondary style-button">Get</button>
-            <button type="submit" class="btn btn-secondary style-button">Post</button>
-            <button type="button" class="btn btn-secondary style-button" (click)="resetForm()">Clear</button>
-            <button (click)="onShowsGet()">Teste GET Request</button>
-          <p>Resultado : {{getData}}</p>
+            <button type="button" class="btn btn-secondary style-button" routerLink="/consult">Consult</button>
+            <button type="submit" class="btn btn-success style-button" routerLink="/post">New</button>
         </li>
       </ul>
 </section>

@@ -1,0 +1,32 @@
+<section>
+
+  <ul class="list-group">
+      <li class="list-group-item list-group-item-dark font-weight-bold">Reserve</li>
+      <li class="list-group-item">
+          <form *ngFor="let i of arrowReserve">
+          <div class="form-group" >
+            <label for="shows">Show:</label>
+            <select matInput class="form-control" id="name" >
+              <option  *ngFor="let i of getReserve.results" [ngValue]='i.id'>{{i.name}}</option>
+            </select>
+            </div>
+            <div class="form-group">
+              <label for="status">Status Armchairs:</label>
+              <select matInput class="form-control" id="status" name="status_armchairs" [(ngModel)]='i.status' [ngModelOptions]='{standalone: true}'>
+                  <option value="Available">Available</option>
+                  <option value="Unavailable">Unavailable</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="show reservation">Reservation Name:</label>
+              <input matInput type="text" class="form-control" id="reservation" [(ngModel)]='i.reservation_name' [ngModelOptions]='{standalone: true}'>
+          </div>
+          </form>
+      </li>
+      <li class="list-group-item list-group-item-dark font-weight-bold">
+          <button type="submit" class="btn btn-success style-button" (click)="onReserve()">Reserve</button>
+          <button type="submit" class="btn btn-danger style-button" routerLink="/cancel">Cancel</button>
+      </li>
+    </ul>
+
+</section>

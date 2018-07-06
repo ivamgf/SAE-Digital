@@ -1,20 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-// import 'rxjs/add/operator/map';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-// import { Observable } from 'rxjs/Observable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
-
-  constructor(
+  public count: number;
+ constructor(
     private http: Http
-  ) { }
-    getShows(): Observable<Response> {
+  )   { }
+    getShows() {
     return this.http.get('https://desafia.sae.digital/api/shows/')
-    .pipe(map(res => res.json()));
+    .pipe(map(data => data.json()));
+  }
+    getBills() {
+    return this.http.get('https://desafia.sae.digital/api/bills/')
+    .pipe(map(data => data.json()));
+  }
+    getBillsId() {
+    return this.http.get('https://desafia.sae.digital/api/bills/{id}/')
+    .pipe(map(data => data.json()));
+  }
+    getArmchairs() {
+    return this.http.get('https://desafia.sae.digital/api/armchairs/')
+    .pipe(map(data => data.json()));
+  }
+    getArmchairsId(): Observable<Response[]> {
+    return this.http.get('https://desafia.sae.digital/api/armchairs/{id}/')
+    .pipe(map(data => data.json()));
   }
 }

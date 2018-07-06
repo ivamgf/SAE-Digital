@@ -9,19 +9,10 @@ ul {
   margin-top: 2%;
 }
 
-.style-buttons {
-  margin-left: 10%;
-  margin-top: 5%;
-}
-
 #id {
-  width: 100px;
+  width: 200px;
 }
 
 .style-button {
   margin: 1%;
-}
-
-#cod_id {
-  width: 100px;
 }

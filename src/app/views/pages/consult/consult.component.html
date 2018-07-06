@@ -1,0 +1,47 @@
+<section>
+  <ul class="list-group">
+      <li class="list-group-item list-group-item-dark font-weight-bold">Consult Shows</li>
+      <li class="list-group-item">
+          <form>
+              <div class="form-group">
+                <label for="show id">Id:</label>
+                <input matInput type="number" class="form-control" id="id" [(ngModel)]='getConsultId.number' [ngModelOptions]='{standalone: true}' placeholder='Select the armchair id'>
+            </div>
+            <div class="form-group">
+              <label for="show name">Show Name:</label>
+              <input type="text" class="form-control" id='iname' name='name' [(ngModel)]='getConsult.name' [ngModelOptions]='{standalone: true}' requered>
+            </div>
+
+            <div class="form-group">
+              <label for="desc">Show Description:</label>
+              <textarea matInput class="form-control" rows="2" id="description" [(ngModel)]='getConsult.description' [ngModelOptions]='{standalone: true}' requered></textarea>
+            </div>
+            <div class="form-group">
+                <label for="show date">Show Date:</label>
+                <input matInput type="datetime" class="form-control" id="date" [(ngModel)]='getConsult.date' [ngModelOptions]='{standalone: true}' requered>
+            </div>
+            <div class="form-group">
+                <label for="show number">Number of Armchairs:</label>
+                <input matInput type="number" class="form-control" id="armchairs_qtd" [(ngModel)]='getConsult.armchairs_qtd' [ngModelOptions]='{standalone: true}' requered>
+            </div>
+            <div class="form-group">
+            <label for="status">Status:</label>
+            <select matInput class="form-control" id="status" name="status" [(ngModel)]='getConsult.status' [ngModelOptions]='{standalone: true}'>
+                <option value="Active">Active</option>
+                <option value="Inactive">Inactive</option>
+            </select>
+            </div>
+            <div class="form-group">
+                <label for="show cost">Cost of Armchairs:</label>
+                <input matInput type="number" class="form-control" id="cost_of_armchair" placeholder="R$ 0.00" [(ngModel)]='getConsult.cost_of_armchair * getConsult.armchairs_qtd' [ngModelOptions]='{standalone: true}' disabled>
+            </div>
+          </form>
+      </li>
+      <li class="list-group-item list-group-item-dark font-weight-bold">
+          <button type="button" class="btn btn-secondary style-button" (click)="getShowsId()">Get</button>
+          <button type="button" class="btn btn-secondary style-button" (click)="onPut()">Put</button>
+          <button type="button" class="btn btn-danger style-button" (click)="onDelete()">Delete</button>
+      </li>
+    </ul>
+</section>
+
