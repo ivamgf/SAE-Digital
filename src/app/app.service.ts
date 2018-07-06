@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -8,8 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AppService {
   public count: number;
- // private options = new RequestOptions({ headers: this.headers });
-  constructor(
+ constructor(
     private http: Http
   )   { }
     getShows() {

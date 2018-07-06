@@ -36,13 +36,6 @@ export class ReserveComponent implements OnInit {
       data => this.getReserve = data,
       error => alert(error)
    );
-   this.form_reserve = this.formBuilder.group({
-
-    name: ['', [Validators.required, Validators.nullValidator]],
-    reservation_name: ['', [Validators.required, Validators.nullValidator]],
-    status_armchairs: ['', [Validators.required, Validators.nullValidator]]
-
-  });
   }
   onReserve() {
     const options = new RequestOptions({headers: contentHeaders});

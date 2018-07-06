@@ -4,7 +4,7 @@
         <li class="list-group-item list-group-item-dark font-weight-bold">Armchairs List</li>
         <li class="list-group-item">
 
-            <form [formGroup] = "form_armchairs" *ngFor="let i of getArmchairs.results">
+            <form *ngFor="let i of getArmchairs.results">
               <div class="form-group">
                   <label for="show cod_id">Cod. id:</label>
                   <input matInput type="number" class="form-control" id="cod_id" [(ngModel)]='i.id' [ngModelOptions]='{standalone: true}' disabled>

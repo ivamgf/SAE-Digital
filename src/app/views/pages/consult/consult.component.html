@@ -5,12 +5,13 @@
           <form>
               <div class="form-group">
                 <label for="show id">Id:</label>
-                <input matInput type="number" class="form-control" id="id" [(ngModel)]='getConsultId.number' [ngModelOptions]='{standalone: true}'>
+                <input matInput type="number" class="form-control" id="id" [(ngModel)]='getConsultId.number' [ngModelOptions]='{standalone: true}' placeholder='Select the armchair id'>
             </div>
             <div class="form-group">
               <label for="show name">Show Name:</label>
               <input type="text" class="form-control" id='iname' name='name' [(ngModel)]='getConsult.name' [ngModelOptions]='{standalone: true}' requered>
             </div>
+
             <div class="form-group">
               <label for="desc">Show Description:</label>
               <textarea matInput class="form-control" rows="2" id="description" [(ngModel)]='getConsult.description' [ngModelOptions]='{standalone: true}' requered></textarea>

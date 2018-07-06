@@ -2,7 +2,7 @@
     <ul class="list-group">
         <li class="list-group-item list-group-item-dark font-weight-bold">Shows List</li>
         <li class="list-group-item">
-            <form [formGroup] = 'form_shows' *ngFor="let i of getData.results">
+            <form *ngFor="let i of getData.results">
               <div class="form-group">
                   <label for="show id">Id:</label>
                   <input matInput type="number" class="form-control" id="id" [(ngModel)]='i.id' [ngModelOptions]='{standalone: true}'  disabled>

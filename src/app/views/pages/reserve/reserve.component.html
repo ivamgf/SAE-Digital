@@ -3,7 +3,7 @@
   <ul class="list-group">
       <li class="list-group-item list-group-item-dark font-weight-bold">Reserve</li>
       <li class="list-group-item">
-          <form [formGroup] = "form_reserve" *ngFor="let i of arrowReserve">
+          <form *ngFor="let i of arrowReserve">
           <div class="form-group" >
             <label for="shows">Show:</label>
             <select matInput class="form-control" id="name" >

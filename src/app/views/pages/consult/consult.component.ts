@@ -41,7 +41,6 @@ export class ConsultComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
   }
   getShowsId() {
     return this.http.get(`https://desafia.sae.digital/api/shows/${this.getConsultId.number}`)
