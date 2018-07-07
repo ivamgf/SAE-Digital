@@ -13,6 +13,7 @@ export class ArmchairsComponent implements OnInit {
 
   form_armchairs: FormGroup;
   getArmchairs:  string;
+  results: any;
 
   constructor(
     private formBuilder: FormBuilder,

@@ -15,6 +15,7 @@ import { AppService } from '../../../app.service';
 })
 export class ShowsComponent implements OnInit {
   number = new FormControl();
+  results: any;
   date = new FormControl();
   armchairs_qtd = new FormControl();
   status = new FormControl();

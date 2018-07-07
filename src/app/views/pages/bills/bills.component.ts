@@ -12,6 +12,7 @@ export class BillsComponent implements OnInit {
 
   form_bills: FormGroup;
   getBills:  string;
+  results: any;
 
   constructor(
     private formBuilder: FormBuilder,
